@@ -1,8 +1,8 @@
 'use client'
-
+import { useState } from 'react';
+//import Modal from 'react-modal';
 import { useChat } from 'ai/react'
 import { useEffect, useRef } from 'react'
-
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { ScrollArea } from '@/components/ui/scroll-area'
@@ -19,7 +19,7 @@ export default function Chat() {
         {
           id: Date.now().toString(),
           role: 'system',
-          content: 'You are an assistant that gives short answers.'
+          content: 'You are an assistant of the organisation Learnit.ai give medium length answers only  also focus more on solving student doubts .'
         }
       ]
     })
@@ -69,7 +69,7 @@ export default function Chat() {
                     </Avatar>
                     <div className='mt-1.5 w-full'>
                       <div className='flex justify-between'>
-                        <p className='font-semibold'>Bot</p>
+                        <p className='font-semibold'>LearnBot</p>
                         <CopyToClipboard message={m} className='-mt-1' />
                       </div>
                       <div className='mt-2 text-sm text-zinc-500'>
@@ -86,7 +86,7 @@ export default function Chat() {
             <Input
               value={input}
               onChange={handleInputChange}
-              placeholder='Ask me anything...'
+              placeholder='Ask me your Doubts...'
               className='pr-12 placeholder:italic placeholder:text-zinc-600/75 focus-visible:ring-zinc-500'
             />
             <Button
